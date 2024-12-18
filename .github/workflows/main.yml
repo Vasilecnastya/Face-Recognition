@@ -1,0 +1,21 @@
+name: Face Recognition CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: build dcoker image
+      run: docker build . --file Dockerfile -t vasilecnastya03/face-recognition:${{github.sha}}
+    - name: push to dockerhub
+      run: docker push vasilecnastya03/face-recognition:${{github.sha}}
