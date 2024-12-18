@@ -63,5 +63,5 @@ if __name__ == '__main__':
         case 'file':
             process_file(model, args[0])
         case 'noargs':
-            process_file(model, os.path.join(IMAGES_PATH, 'test.png'))
+            process_file(model, os.path.join(IMAGES_PATH, '3.jpg'))
     print('Обработка завершена')
