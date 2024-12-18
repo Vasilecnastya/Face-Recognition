@@ -6,7 +6,7 @@ import os
 import signal
 
 from variables import IMAGES_PATH, WEIGHTS_PATH, ALLOWED_EXTENSIONS
-
+#ghjdthrf 
 
 def process_arguments(args: list) -> str:
     if len(args) != 0 and args[0].split('.')[-1] in ALLOWED_EXTENSIONS:
